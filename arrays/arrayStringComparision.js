@@ -1,6 +1,6 @@
 const arr1 = [1, 2, 3];
 const str = "1,2,3";
-
+console.log("----1-----")
 console.log(arr1 == str); // true (type coercion)
 console.log(arr1 === str); // false (different types)
 
@@ -9,7 +9,13 @@ console.log(arr1 === str); // false (different types)
 
 // Arrays are objects, but when compared with a string using ==,
 // JavaScript converts the array into a comma-separated string.
-
+console.log("----2-----")
 console.log([10, 20] == "10,20");  // true
 console.log([1] == "1");           // true
 console.log([] == "");             // true
+
+console.log("----3-----")
+const x = [1, 2];
+const y = '1,2';
+console.log(x == y);
+
