@@ -22,3 +22,7 @@ const x = [1];
 const y = [2];
 console.log(x + y);
 console.log(typeof(x + y));
+
+console.log("----4-----");
+const [r, t = 5] = [10];
+console.log(r + t);

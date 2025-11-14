@@ -7,3 +7,14 @@ console.log(num);
 // and then increments it to 1.
 // The pre-increment operator (++num) increments num to 2 first and then returns it.
 // Finally, logging num shows its current value, which is 2.
+
+console.log("----2-----");
+let x = "10";
+console.log(x++);   // prints 10
+console.log(x);     // now x becomes 11
+
+console.log("----3-----");
+let f = 1;
+f = f++;
+console.log(f);
+

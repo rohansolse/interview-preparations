@@ -20,3 +20,8 @@ console.log(0 || 1);
 console.log(1 || 2);
 console.log(0 && 1);
 console.log(1 && 2);
+
+
+console.log("----4-----");
+let x = 1 || 2 && 3;
+console.log(x);
