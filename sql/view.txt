@@ -1,0 +1,36 @@
+✅ Q14. What is a VIEW and why do we use it?
+
+A VIEW in SQL is a stored query that acts like a virtual table.
+It does NOT store data — it just stores a SELECT query.
+When you select from the view, SQL runs the stored query behind the scenes.
+
+✅ Why do we use a VIEW?
+1️⃣ Reuse Complex Queries
+If you have a long/complex SELECT query, instead of writing it again and again you create a VIEW and use it like a table.
+
+2️⃣ Security
+You can expose only specific columns to certain users while hiding sensitive columns.
+
+3️⃣ Simplify Reporting
+Views combine multiple joins/filters, making reporting queries shorter.
+
+4️⃣ Abstraction Layer
+Front-end teams don’t worry about joins or business logic — the DB handles it.
+
+
+🎁 Why Views Are Better Than Repeating Queries?
+⭐ 1. Avoid Copy-Paste Errors
+If query logic changes, update only the VIEW, not 10+ API functions.
+
+⭐ 2. Hides Internal DB Structure
+Frontend/BI tools don’t need to know joins.
+
+Example:
+If you later change table names, only update the view.
+
+⭐ 3. Security
+Expose only approved fields.
+
+CREATE VIEW user_public_info AS
+SELECT participant_id, name
+FROM program_participants;

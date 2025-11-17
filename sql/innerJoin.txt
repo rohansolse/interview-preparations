@@ -1,0 +1,27 @@
+| column              | type    |
+| ------------------- | ------- |
+| participant_id (PK) | INT     |
+| application_id      | INT     |
+| full_name           | VARCHAR |
+| email               | VARCHAR |
+
+
+| column                                                    | type    |
+| --------------------------------------------------------- | ------- |
+| card_id (PK)                                              | INT     |
+| participant_id (FK → program_participants.participant_id) | INT     |
+| card_number                                               | VARCHAR |
+| status                                                    | VARCHAR |
+| issued_date                                               | DATE    |
+
+
+SELECT 
+    pp.participant_id,
+    pp.full_name,
+    pmi.upid,
+    pmi.program_type,
+    pmi.oti_card
+FROM program_participants pp
+LEFT JOIN participants_migration_info pmi
+    ON pp.application_id = pmi.application_id
+WHERE pmi.program_type = 'DAILY';

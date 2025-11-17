@@ -1,0 +1,13 @@
+Q2. Difference between WHERE and HAVING?
+
+WHERE filters rows before grouping (no aggregate needed).
+HAVING filters groups after GROUP BY (usually with aggregates).
+
+| Feature                                   | WHERE                  | HAVING                    |
+| ----------------------------------------- | ---------------------- | ------------------------- |
+| Executes                                  | Before GROUP BY        | After GROUP BY            |
+| Filters                                   | Individual rows        | Groups formed by GROUP BY |
+| Can use aggregate functions (SUM, COUNT…) | ❌ No                   | ✔ Yes                     |
+| Used with                                 | SELECT, UPDATE, DELETE | SELECT + GROUP BY         |
+
+

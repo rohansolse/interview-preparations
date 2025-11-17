@@ -1,0 +1,13 @@
+| Feature                               | **VIEW**                                       | **STORED PROCEDURE**                                   |
+| ------------------------------------- | ---------------------------------------------- | ------------------------------------------------------ |
+| **Definition**                        | A virtual table created from a SELECT query    | A pre-compiled block of SQL logic with procedural code |
+| **Returns**                           | Always returns a **result set** (like a table) | May return **0, 1, or many** result sets, or no result |
+| **Used For**                          | Simplifying complex SELECT queries             | Business logic (insert/update/delete + calculations)   |
+| **Can contain INSERT/UPDATE/DELETE?** | ❌ No                                           | ✔ Yes                                                  |
+| **Can have parameters?**              | ✔ Yes (in some DBs) but mostly used without    | ✔ Yes (fully parameterized)                            |
+| **Performance**                       | Fast for SELECT, but depends on base tables    | Faster for complex logic (pre-compiled)                |
+| **Storage**                           | Stores only the query, not the data            | Stores compiled code + logic                           |
+| **Execution**                         | Used like a table inside SELECT                | Called using EXEC / CALL                               |
+| **Security**                          | Can restrict column access                     | Can restrict operations                                |
+| **Use in SELECT**                     | ✔ Yes                                          | ❌ Cannot use directly in SELECT                        |
+| **Reusability**                       | Reuse SELECT queries                           | Reuse business logic                                   |
