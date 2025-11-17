@@ -1,0 +1,153 @@
+Here is the **simple, clear explanation of Angular Signals (Angular 16)** so you can understand it easily:
+
+---
+
+# ✅ **What are Signals in Angular 16?**
+
+Signals are **a new reactivity system** in Angular.
+
+Before Angular 16, Angular used:
+✔ Change Detection
+✔ Zone.js
+✔ Observables (RxJS)
+
+Now Angular introduces **Signals**, which make reactivity:
+
+* faster
+* predictable
+* easier to understand
+* without unnecessary change detection
+
+---
+
+# 🎯 **Why Signals?**
+
+Because RxJS and Change Detection are powerful but sometimes:
+
+* too complex
+* trigger re-renders everywhere
+* harder for simple state management
+
+Signals simplify this.
+
+---
+
+# 📌 **Think of a Signal like a variable that automatically updates the UI when its value changes.**
+
+Example:
+
+```ts
+import { signal } from '@angular/core';
+
+count = signal(0);  // create a signal
+
+increment() {
+  this.count.update(value => value + 1);
+}
+```
+
+Whenever `count` changes → Angular automatically updates the UI.
+
+---
+
+# 🚀 **How to Read a Signal**
+
+You use **()`** to read its value:
+
+```ts
+<p>{{ count() }}</p>
+```
+
+---
+
+# 🛠️ **How to Create a Signal**
+
+```ts
+import { signal } from '@angular/core';
+
+name = signal('Rohan');
+```
+
+---
+
+# 🔄 **How to Update Signal**
+
+### 1. **Set a new value**
+
+```ts
+name.set('Solse');
+```
+
+### 2. **Update based on old value**
+
+```ts
+count.update(c => c + 1);
+```
+
+### 3. **Mutate objects/arrays**
+
+```ts
+items.mutate(list => list.push('apple'));
+```
+
+---
+
+# 📘 **Simple Component Example (Angular Signals)**
+
+```ts
+import { Component, signal } from '@angular/core';
+
+@Component({
+  selector: 'app-counter',
+  template: `
+    <h2>Count: {{ count() }}</h2>
+    <button (click)="increment()">Increment</button>
+  `
+})
+export class CounterComponent {
+
+  count = signal(0);
+
+  increment() {
+    this.count.update(c => c + 1);
+  }
+}
+```
+
+✔ No RxJS
+✔ No BehaviorSubject
+✔ No async pipe
+✔ UI updates automatically
+
+---
+
+# 🔥 **Why Signals Are Powerful**
+
+✔ Faster than Change Detection
+✔ Predictable update flow
+✔ No Zones required
+✔ Best for state management
+✔ Works great with Angular's future update system
+
+---
+
+# 🧠 Signals vs RxJS (Simple)
+
+| Feature        | Signals                  | RxJS                                |
+| -------------- | ------------------------ | ----------------------------------- |
+| Data updates   | Simple (`set`, `update`) | Complex (`next`, `pipe`, operators) |
+| Re-renders     | Only when needed         | Can trigger many updates            |
+| Learning curve | Easy                     | Hard for beginners                  |
+| Best use       | Local component state    | API calls, streams, complex logic   |
+
+---
+
+# If you want
+
+I can also show:
+✔ Signals + Computed values
+✔ Signals + Effects
+✔ Replace BehaviorSubject with Signals
+✔ When to use Signals vs RxJS
+
+Just tell me!

@@ -1,0 +1,6 @@
+A DNS server acts as the "phonebook of the internet," 
+translating human-friendly domain names like www.google.com 
+into machine-readable IP addresses like 192.0.2.44. 
+When you type a website address into your browser, 
+the DNS server finds the corresponding IP address so 
+that your device can connect to the correct server to load the page

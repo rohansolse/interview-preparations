@@ -1,0 +1,87 @@
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html'
+})
+export class LoginComponent implements OnInit {
+
+  loginForm!: FormGroup;   // ✅ Reactive form object
+
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit(): void {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],  // formControlName: 'email'
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
+  }
+
+  onSubmit(): void {
+    if (this.loginForm.invalid) {
+      this.loginForm.markAllAsTouched(); // show errors
+      return;
+    }
+
+    console.log('Form Value:', this.loginForm.value);
+    // You can call API here
+  }
+
+  // small helper for template
+  get f() {
+    return this.loginForm.controls;
+  }
+}
+
+
+<h2>Login Form (Reactive)</h2>
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+  <!-- Email -->
+  <div>
+    <label for="email">Email</label>
+    <input
+      id="email"
+      type="email"
+      formControlName="email"
+      placeholder="Enter your email"
+    />
+
+    <!-- Error Messages -->
+    <div *ngIf="f['email'].touched && f['email'].invalid" style="color: red;">
+      <small *ngIf="f['email'].errors?.['required']">Email is required</small>
+      <small *ngIf="f['email'].errors?.['email']">Enter a valid email</small>
+    </div>
+  </div>
+
+  <!-- Password -->
+  <div style="margin-top: 10px;">
+    <label for="password">Password</label>
+    <input
+      id="password"
+      type="password"
+      formControlName="password"
+      placeholder="Enter your password"
+    />
+
+    <!-- Error Messages -->
+    <div *ngIf="f['password'].touched && f['password'].invalid" style="color: red;">
+      <small *ngIf="f['password'].errors?.['required']">Password is required</small>
+      <small *ngIf="f['password'].errors?.['minlength']">
+        Minimum {{ f['password'].errors?.['minlength'].requiredLength }} characters required
+      </small>
+    </div>
+  </div>
+
+  <!-- Submit Button -->
+  <button type="submit" [disabled]="loginForm.invalid" style="margin-top: 15px;">
+    Login
+  </button>
+
+</form>
+
+<!-- For debugging -->
+<pre>{{ loginForm.value | json }}</pre>
+<pre>Valid: {{ loginForm.valid }}</pre>

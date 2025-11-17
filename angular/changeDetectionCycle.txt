@@ -1,0 +1,27 @@
+✅ What is Change Detection Cycle in Angular?
+
+In Angular, Change Detection Cycle is the process where Angular checks:
+
+✔ Whether any data in your component has changed
+✔ Whether the UI (template) should be updated
+✔ Whether any binding (like {{ }}, [ ], ( )) needs to reflect new values
+
+In simple words:
+👉 Every time something changes in your app, Angular runs a cycle to update the UI.
+
+
+✅ How it works (Step-by-step)
+1. Trigger happens
+
+Change detection starts when any of these occur:
+User event (click, keyup, input…)
+HTTP response
+setTimeout / setInterval
+Promise / Observable emits
+ChangeDetectorRef called manually
+Zone.js catches async events
+
+2. Angular starts checking from the root
+
+Angular begins checking from AppComponent → child components → grandchildren
+This is called the change detection tree.

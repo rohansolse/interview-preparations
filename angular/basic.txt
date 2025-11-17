@@ -1,0 +1,76 @@
+1️⃣ What is Angular?
+
+Angular is a TypeScript-based front-end framework used to build scalable, single-page applications.
+It provides features like components, services, dependency injection, routing, RxJS, and forms.
+
+
+2️⃣ What is a Component?
+
+A component is the basic UI building block of Angular.
+It contains:
+
+HTML template
+TypeScript logic
+CSS
+Metadata (decorator @Component())
+
+
+3️⃣ What is Data Binding?
+
+Data binding connects component data with the template.
+Types:
+
+Interpolation → {{ value }}
+Property binding → [disabled]="isDisabled"
+Event binding → (click)="onClick()"
+Two-way binding → [(ngModel)]="name"
+
+
+4️⃣ What are Directives?
+
+Directives are instructions to the DOM.
+Types:
+
+Component directive (with template)
+Structural directive → *ngIf, *ngFor, *ngSwitch
+Attribute directive → ngClass, ngStyle, custom attribute directive
+
+
+5️⃣ What is Dependency Injection (DI)?
+
+Angular’s DI system automatically creates and provides services to components.
+It helps avoid manually creating service instances using new.
+
+
+6️⃣ What is a Service?
+
+A service is a class meant for common functionality like:
+API calls
+Business logic
+Shared data
+Injected into components using Directives
+
+
+7️⃣ What is Routing in Angular?
+
+Routing allows navigation between components without reloading the page.
+
+
+9️⃣ Difference: Template-Driven vs Reactive Forms
+
+| Feature     | Template-Driven | Reactive               |
+| ----------- | --------------- | ---------------------- |
+| Approach    | HTML-heavy      | TS-heavy               |
+| FormControl | Created in HTML | Created in TS          |
+| Validation  | In template     | In TS                  |
+| Use Case    | Simple forms    | Complex, dynamic forms |
+
+
+
+🔟 What is Change Detection?
+
+Change detection updates the DOM when data changes.
+Angular checks component tree on:
+Events
+HTTP calls
+Async operations

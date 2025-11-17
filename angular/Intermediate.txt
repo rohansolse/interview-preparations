@@ -1,0 +1,18 @@
+1️⃣ What is a Module in Angular?
+
+A module (@NgModule) groups components, directives, pipes, and services into a logical unit.
+Example: AppModule, SharedModule, AuthModule.
+
+
+2️⃣ What are Lifecycle Hooks?
+
+Lifecycle hooks allow running logic at specific moments of a component’s life.
+Important hooks:
+
+ngOnInit()
+
+ngOnChanges()
+
+ngAfterViewInit()
+
+ngOnDestroy()

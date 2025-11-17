@@ -1,0 +1,16 @@
+User Types URL
+      │
+      ▼
+Browser → DNS → finds IP
+      │
+      ▼
+TCP Connection Created
+      │
+      ▼
+HTTP Request Sent
+      │
+      ▼
+Server Processes & Sends Response
+      │
+      ▼
+Browser Shows Output

@@ -1,0 +1,23 @@
+What is Authentication and Authorization?
+
+✅ Authentication
+Meaning:
+Authentication is the process of verifying the identity of a user — checking who the user is.
+
+Examples:
+
+Logging in with email + password
+OTP verification
+Fingerprint / FaceID
+Login via Google or Auth0
+
+
+✅ Authorization
+Meaning:
+Authorization is the process of deciding what the authenticated user is allowed to do — controlling access.
+
+Examples:
+Admin can access all users
+Normal user can only view their own profile
+Only parking Admin can approve reservations
+Only Clipper user can access transit refund screen
