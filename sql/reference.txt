@@ -1,0 +1,21 @@
+✅ What does REFERENCES mean in SQL?
+
+REFERENCES is used to create a foreign key in a table.
+A foreign key means:
+
+➡️ The value in this column must exist in another table's column.
+➡️ It creates a relationship between two tables.
+
+🔍 Your Example
+CREATE TABLE employee_projects (
+  emp_id       INT REFERENCES employees(emp_id),
+  project_id   INT REFERENCES projects(project_id)
+);
+
+✔ Explanation
+
+emp_id must match an existing emp_id in the employees table.
+
+project_id must match an existing project_id in the projects table.
+
+SQL will not allow inserting any value in employee_projects unless the referenced value exists.

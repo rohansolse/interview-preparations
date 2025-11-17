@@ -1,0 +1,16 @@
+A Subject in Angular comes from RxJS and is used for sending and receiving data between components or services in real time.
+
+It is one of the most important concepts for component communication.
+
+✅ Simple Definition
+
+A Subject is like a messenger:
+
+You can send data to it.
+
+Anyone who is listening will instantly receive that data.
+
+It is both:
+
+✔ Observable → components can subscribe
+✔ Observer → you can push values into it using next()

@@ -1,0 +1,5 @@
+| Key Type         | How Many Allowed    | Notes                               |
+| ---------------- | ------------------- | ----------------------------------- |
+| **Primary Key**  | ✅ **ONLY 1**        | Can be single column or composite   |
+| **Unique Keys**  | ♾️ **Many allowed** | Enforces uniqueness but allows NULL |
+| **Foreign Keys** | ♾️ **Many allowed** | Used to reference other tables      |

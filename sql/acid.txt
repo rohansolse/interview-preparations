@@ -1,0 +1,6 @@
+| Property        | Meaning                              | Example                                                        |
+| --------------- | ------------------------------------ | -------------------------------------------------------------- |
+| **Atomicity**   | All or nothing                       | Payment deduction + order creation = both succeed or both fail |
+| **Consistency** | Data must follow rules               | Wallet cannot go negative                                      |
+| **Isolation**   | Transactions don’t affect each other | Two users booking same ticket                                  |
+| **Durability**  | Data stored permanently after commit | Payment record exists even after crash                         |
