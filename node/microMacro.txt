@@ -1,0 +1,44 @@
+🚀 Macro-tasks vs Micro-tasks in JavaScript (Event Loop)
+
+The Event Loop processes two types of tasks:
+
+1️⃣ Macro-tasks (Task Queue)
+2️⃣ Micro-tasks (Microtask Queue)
+
+Both are important for how JavaScript schedules asynchronous operations.
+
+🟠 1. Macro-tasks (Macro Events)
+
+Macro-tasks are bigger events that go into the Task Queue.
+
+✔ Examples of Macro-tasks
+
+setTimeout()
+setInterval()
+setImmediate() (Node.js)
+I/O callbacks (DB calls, file reads)
+HTTP requests callbacks
+DOM events (click, scroll, etc.)
+
+🟢 2. Micro-tasks (Micro Events)
+
+Micro-tasks are smaller, higher-priority events.
+They go to the Microtask Queue.
+
+✔ Examples of Micro-tasks
+Promises (then(), catch(), finally())
+async/await (await creates a microtask)
+queueMicrotask()
+
+MutationObserver (browser)
+
+🔥 Which one runs first?
+
+👉 Micro-tasks ALWAYS run before macro-tasks
+after each JavaScript execution cycle.
+
+Event Loop Order:
+Run one macro-task
+After it finishes → run all micro-tasks
+Render UI (browser)
+Repeat

@@ -1,0 +1,9 @@
+Difference between GET, POST, PUT, PATCH
+Difference between Input and Output (Angular)
+Find the second highest number in an array
+How to optimize APIs
+PM2 deployment flow
+Git merge concepts
+Writing test cases, including cases for priority values
+How to handle visual test cases or UI-related validation
+General discussion on screen sharing tasks and practical problem-solving
