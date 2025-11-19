@@ -1,0 +1,37 @@
+How do you handle for large datasets in Angular?
+
+1. For large datasets, I always use server-side pagination and filtering so the client only renders a small chunk at a time.
+
+2. Virtual scroll (Angular CDK) for big lists
+When you must show a long list (e.g. 5k rows in one view), use virtual scrolling:
+
+<!-- app.module.ts -->
+@NgModule({
+  ...
+  imports: [
+    ScrollingModule, // from @angular/cdk/scrolling
+    ...
+  ]
+})
+export class AppModule {}
+
+
+<!-- users-list.component.html -->
+<cdk-virtual-scroll-viewport itemSize="50" class="viewport">
+  <div *cdkVirtualFor="let user of users; trackBy: trackById">
+    {{ user.name }} - {{ user.email }}
+  </div>
+</cdk-virtual-scroll-viewport>
+
+
+3. Avoid expensive work in templates
+When data is huge, even small mistakes amplify:
+❌ Bad:
+<div *ngFor="let user of users">
+  {{ calculateAge(user.dob) }}
+</div>
+
+4. Web Workers for heavy processing
+5. Caching & lazy loading
+
+6. onpush and changes detetion with tracked by id while adding new items but no dom manupulation

@@ -1,0 +1,47 @@
+What is an API Gateway in microservices architecture?
+
+Definition
+
+An API Gateway is a single entry point for all client requests in a microservices architecture.
+Instead of calling each microservice directly, the client communicates with the API Gateway,
+and the gateway forwards the request to the correct microservice.
+
+Why We Need an API Gateway?
+
+Without a gateway:
+Client needs to know all microservice URLs
+Client must handle authentication, load balancing, retries, monitoring, etc.
+Hard to change internal architecture → tight coupling
+
+With API Gateway:
+Client calls only one URL (e.g., api.myapp.com)
+API Gateway manages routing, security, data transformation, load balancing, rate limiting, etc.
+Clients become lightweight and simple
+
+Diagram
+
+   Client (Angular / Mobile / Web)
+               |
+               ▼
+       ┌───────────────────┐
+       │    API Gateway    │  ◄── Authentication, Routing, Logging
+       └───────────────────┘
+         |      |       |
+         ▼      ▼       ▼
+ ┌─────────┐ ┌─────────┐ ┌─────────┐
+ │ Auth    │ │ Payment │ │ Product │
+ │ Service │ │ Service │ │ Service │
+ └─────────┘ └─────────┘ └─────────┘
+
+
+// api-gateway.js
+import express from 'express';
+import proxy from 'express-http-proxy';
+
+const app = express();
+
+app.use('/auth', proxy('http://localhost:3001'));      // Auth microservice
+app.use('/product', proxy('http://localhost:3002'));   // Product microservice
+app.use('/payment', proxy('http://localhost:3003'));   // Payment microservice
+
+app.listen(3000, () => console.log('API Gateway running on port 3000'));

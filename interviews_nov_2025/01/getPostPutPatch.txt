@@ -1,0 +1,6 @@
+| Method    | Purpose        | Body | Idempotent | Usage                   |
+| --------- | -------------- | ---- | ---------- | ----------------------- |
+| **GET**   | Fetch data     | ❌    | ✔          | Read-only operations    |
+| **POST**  | Create data    | ✔    | ❌          | Register user, add item |
+| **PUT**   | Full update    | ✔    | ✔          | Replace entire record   |
+| **PATCH** | Partial update | ✔    | ✔          | Update only one field   |

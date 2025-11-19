@@ -1,0 +1,4 @@
+You usually have two sane options in Angular:
+
+Use the browser’s print → “Save as PDF” with proper print CSS (surprisingly powerful).
+Use a library like jsPDF + html2canvas to capture a styled DOM and export to PDF.

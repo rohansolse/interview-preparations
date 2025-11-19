@@ -1,0 +1,10 @@
+What is WCAG?
+
+WCAG = Web Content Accessibility Guidelines.
+
+Organized under 4 principles (“POUR”): 
+
+Perceivable – users must be able to perceive the content (e.g., text alternatives for images).
+Operable – users must be able to operate the UI (e.g., keyboard support).
+Understandable – content and UI must be easy to understand.
+Robust – content must work with assistive tech (screen readers, etc.).
