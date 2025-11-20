@@ -1,0 +1,35 @@
+what is vertical scaling and horizontal scaling?
+
+🔷 Vertical Scaling (Scale Up)
+
+➡️ Increase the power of a single server
+➡️ Add more CPU, RAM, storage, or move to a higher configuration machine
+
+✔ Example
+
+Current Server: 4GB RAM → Upgrade to 16GB RAM
+Single database server → Increase CPU cores & memory
+
+✔ Advantages
+
+Easy to implement (only upgrade hardware)
+No changes in application code
+Good for monolithic applications
+
+🔷 Horizontal Scaling (Scale Out)
+
+➡️ Add more servers to handle more traffic
+➡️ Traffic is load-balanced between multiple machines
+
+✔ Example
+
+Instead of 1 powerful server → use 5 normal servers working together
+Multiple database servers using sharding or replication
+Add multiple Node.js API servers behind NGINX load balancer
+
+✔ Advantages
+
+High availability – if one server crashes, others work
+Can scale infinitely (just add more servers)
+Better for microservices architecture
+Cost-effective using cloud auto-scaling (AWS, GCP, Azure)
