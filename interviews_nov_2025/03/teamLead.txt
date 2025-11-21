@@ -1,0 +1,87 @@
+## ⭐ **How I Handle the Team as a Team Lead**
+
+### 🔹 1. **Daily & Weekly Planning**
+
+* Start the day with a **Daily Stand-up (Scrum)** – each member gives:
+
+  * Yesterday’s work
+  * Today’s plan
+  * Any blockers
+* Weekly review meetings to **align priorities & timelines**.
+
+### 🔹 2. **Ticket / Task Division**
+
+* Use **Jira / Trello** for ticket creation & tracking.
+* Break bigger features into **small, manageable tasks**.
+* Assign tasks based on:
+  ✔ Developer’s strength
+  ✔ Learning opportunity
+  ✔ Urgency & priority
+
+```text
+Feature → Subtasks → Assign to developers → Track status → Review → Merge → Deploy
+```
+
+### 🔹 3. **Git Branch Management & PR Process**
+
+* Follow **Git Flow Strategy**:
+
+  * `main` → Production
+  * `develop` → UAT / Testing
+  * `feature/xxx` → Individual work
+  * `hotfix/xxx` → Critical fixes
+
+```bash
+feature/login-ui     # UI task
+feature/payment-api  # Backend task
+hotfix/403-error     # Production bug
+```
+
+✔ **Every PR must include** — code, test cases, Jira ticket link.
+✔ Enforce **Code Review** & **Approval from at least 1 reviewer**.
+✔ Merge only when **CI/CD pipeline passes**.
+
+### 🔹 4. **Team Collaboration & Guidance**
+
+* Help juniors in **problem solving & architecture decisions**.
+* Arrange **Knowledge Sharing Sessions** (Angular, Node.js, DB Optimization, etc.)
+* Maintain **clear documentation**.
+* Ensure **no team member is stuck more than 2–3 hours** — quickly unblock them.
+
+### 🔹 5. **Quality & Performance**
+
+* Follow **coding standards & linting rules**.
+* Implement **unit tests & API tests** before merge.
+* Use **SonarQube / ESLint / PM2 logs / New Relic** for monitoring.
+* Do **performance review** before release.
+
+### 🔹 6. **Communication with Management & Team**
+
+* Keep **management updated** with progress.
+* Raise risks early (delay, API dependency, resource issue).
+* Make sure **team is stress-free & productive**.
+* Encourage **open communication & trust**.
+
+### 🔹 7. **Post-Deployment**
+
+* After merging & deployment:
+
+  * Take feedback from team
+  * Log all things in documentation
+  * Attach Jira ticket + PR + DB changes
+  * Discuss improvements for next sprint.
+
+
+## ✔ **Final Summary**
+
+As a Team Lead I always focus on:
+
+| Responsibility  | How I Handle                            |
+| --------------- | --------------------------------------- |
+| Planning        | Sprint meetings & standups              |
+| Task Allocation | Based on skills & priorities            |
+| Code Quality    | Reviews + Testing + Standards           |
+| Collaboration   | Knowledge sharing & support             |
+| Git Strategy    | Feature / develop / main flow           |
+| Team Growth     | Learning + ownership mindset            |
+| Delivery        | CI/CD + proper tracking + release notes |

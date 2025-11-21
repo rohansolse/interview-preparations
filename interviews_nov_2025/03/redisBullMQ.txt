@@ -1,0 +1,6 @@
+how to use redis in long running task
+
+first when we call the backend so we just add that task in a queue ✅
+then again with the second API we are checking that it is done or not ✅
+if it is not done it will give us how many percent is completed or in progress ✅
+and once completed it will give you the whole data ✅

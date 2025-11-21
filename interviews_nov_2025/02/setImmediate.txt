@@ -1,0 +1,11 @@
+🧠 What is setImmediate() in Node.js?
+
+setImmediate() is a Node.js-specific function (not available in browser JavaScript).
+It schedules a callback to be executed after the current event loop cycle is completed, 
+but before setTimeout(..., 0) in most cases.
+
+When Node.js finishes executing the current synchronous code, 
+it places the callback of setImmediate() into the check phase of the event loop.
+
+Because setImmediate() runs before setTimeout(..., 0) in most cases
+(note: sometimes depends on system performance & I/O).

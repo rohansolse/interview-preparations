@@ -1,0 +1,98 @@
+### 🔄 **What is a Reverse Proxy?**
+
+A **Reverse Proxy** is a server that sits **between the client (browser/mobile app) and your backend server**.
+It **receives the requests first**, processes them, and then **forwards them to the actual backend server** — hiding the real server details.
+
+---
+
+### 🧠 **Why It’s Called “Reverse” Proxy?**
+
+In a **normal proxy (forward proxy)** → user contacts proxy → proxy contacts the internet.
+
+In a **reverse proxy** → user thinks they are contacting the server → but they’re contacting a proxy, which secretly contacts the real server.
+
+📌 **It hides and protects the backend server.**
+
+---
+
+### 📌 **Main Benefits of Reverse Proxy**
+
+| Benefit                             | Why It’s Useful                                                         |
+| ----------------------------------- | ----------------------------------------------------------------------- |
+| **Security**                        | Hides backend server IP, filters requests, adds HTTPS, prevents attacks |
+| **Load Balancing**                  | Distributes requests to multiple backend servers                        |
+| **SSL/TLS Handling**                | Terminates HTTPS at reverse proxy (Nginx/Apache), backend remains HTTP  |
+| **Caching**                         | Stores static responses → Faster performance                            |
+| **Compression**                     | Compresses responses before sending to client                           |
+| **Rate Limiting / DDoS Protection** | Blocks overload or malicious requests                                   |
+
+---
+
+### 🔁 **Simple Flow Diagram**
+
+```
+Client (Browser)
+       |
+       v
+Reverse Proxy (Nginx / HAProxy / Apache)
+       |
+       v
+Actual Backend Server (Node.js / API / DB)
+```
+
+---
+
+### 🧪 **Real-World Example: Nginx as Reverse Proxy**
+
+```nginx
+server {
+  listen 80;
+  server_name myapp.com;
+
+  location / {
+    proxy_pass http://localhost:3000; # Node.js server
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection 'upgrade';
+    proxy_set_header Host $host;
+  }
+}
+```
+
+🚀 **Now users will access → `http://myapp.com`
+But your Node.js app is hidden behind Nginx at port 3000!**
+
+---
+
+### ⚙️ **When to Use Reverse Proxy?**
+
+| Use Case                                   | Reverse Proxy Needed?               |
+| ------------------------------------------ | ----------------------------------- |
+| Hosting a Node.js API                      | ✔ Yes                               |
+| Want HTTPS / SSL                           | ✔ Yes                               |
+| Load Balancing                             | ✔ Yes                               |
+| Hiding backend server                      | ✔ Yes                               |
+| Direct Angular app request to Node backend | ✔ Yes                               |
+| Single server, small project               | ❌ Not needed (can directly hit API) |
+
+---
+
+### 📦 **Common Reverse Proxy Tools**
+
+* **Nginx** → Most popular
+* **HAProxy** → High performance load balancer
+* **Apache HTTP Server**
+* **Cloudflare** (acts as reverse proxy for websites)
+* **AWS ALB / Load Balancer**
+
+---
+
+### 🎯 **Final Summary**
+
+✔ Reverse Proxy sits in front of backend
+✔ Secure + hides backend server
+✔ Handles SSL, caching, compression
+✔ Used for load balancing, routing, security
+✔ Commonly used with Node.js, Angular, React apps
+
+    

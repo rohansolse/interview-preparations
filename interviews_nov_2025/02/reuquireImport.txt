@@ -1,0 +1,31 @@
+what is the difference between require and import and which one is fast and why?
+
+| Feature            | `require()`                        | `import`                      |
+| ------------------ | ---------------------------------- | ----------------------------- |
+| **Module System**  | CommonJS                           | ES Modules (ESM)              |
+| **Syntax**         | `const module = require('module')` | `import module from 'module'` |
+| **Execution Time** | Runtime (dynamic)                  | Compile-time (static)         |
+| **Scope**          | Can be conditionally loaded        | Must be at top-level only     |
+| **Support**        | Node.js default till ES6           | Now officially recommended    |
+| **Hoisting**       | No                                 | Yes (import is hoisted)       |
+
+
+| Criteria                              | Winner      | Reason                                |
+| ------------------------------------- | ----------- | ------------------------------------- |
+| **Load Time**                         | `import` ✔  | Imported at **compile-time** → faster |
+| **Execution**                         | `require()` | Loaded at **runtime**                 |
+| **Optimization by V8 Engine**         | `import` ✔  | Static analysis possible              |
+| **Tree Shaking (remove unused code)** | `import` ✔  | Supports tree shaking                 |
+
+
+
+✔ Conclusion
+
+👉 import is faster because it gets loaded before execution (during compile/parse time).
+👉 require() loads when the code runs, so it is slightly slower.
+
+🧾 Final Short Answer (Interview Style):
+
+import is faster than require because it is statically loaded at compile-time, 
+allowing V8 engine optimizations, tree-shaking, and better memory allocation, 
+whereas require() is dynamically loaded at runtime, which slightly reduces performance.

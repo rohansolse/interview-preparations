@@ -1,0 +1,8 @@
+In Angular projects, there is no default grid system built into Angular itself — but we commonly use CSS libraries or Angular-specific UI frameworks that provide grid layouts.
+
+Below are the best options to implement a Grid System in Angular 👇
+
+✅ 1. Using Angular Material Grid List (Most Common)
+🔲 2. Using CSS Flexbox / Grid (No Library Needed)
+🟥 3. Using Bootstrap Grid System
+🟩 4. Using Tailwind CSS Grid

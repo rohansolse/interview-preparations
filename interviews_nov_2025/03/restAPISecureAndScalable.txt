@@ -1,0 +1,31 @@
+3.1 Use HTTPS and secure headers
+Usually done via Nginx/Load Balancer in front of Node.
+In Node, add security headers with helmet:
+3.2 Authentication & Authorization (JWT example)
+3.3 Input validation & sanitization
+Never trust req.body, req.params, req.query.
+Example with joi:
+3.4 Rate limiting & brute-force protection
+Limit how many requests a client can make (per IP).
+3.5 Other security points (high-level)
+Never log passwords/tokens.
+Keep secrets in .env / secret manager.
+Validate file uploads, size & type.
+Use proper CORS config, not * in production.
+
+4. Optimization: Make APIs fast and efficient
+4.1 Pagination & filtering (avoid returning huge lists)
+Bad: GET /api/users returns 10k records.
+Better: GET /api/users?page=1&limit=20&search=rohan
+
+4.2 Caching (example pattern)
+At app-level (simple in-memory, or Redis in real app):
+
+5.2 Horizontal scaling (Node side)
+Example with PM2 on one machine:
+
+5.3 Database scalability
+Add indexes on frequently-used WHERE/JOIN/ORDER BY fields.
+Use read replicas (read from replica, write to master).
+Use connection pooling & set sane pool sizes.
+Use background jobs (queues) for heavy operations instead of doing everything in the request.
