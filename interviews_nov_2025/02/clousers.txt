@@ -1,0 +1,19 @@
+What Are Closures in Node.js (and JavaScript)?
+
+A Closure is a function that remembers its outer variables even after the outer function has finished executing.
+
+function outerFunction() {
+  let count = 0; // outer variable
+
+  function innerFunction() {
+    count++;       // remembers count even after outerFunction is done
+    console.log(count);
+  }
+
+  return innerFunction;
+}
+
+const counter = outerFunction();
+counter();  // Output: 1
+counter();  // Output: 2
+counter();  // Output: 3

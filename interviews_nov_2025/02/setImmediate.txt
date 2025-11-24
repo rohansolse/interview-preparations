@@ -9,3 +9,70 @@ it places the callback of setImmediate() into the check phase of the event loop.
 
 Because setImmediate() runs before setTimeout(..., 0) in most cases
 (note: sometimes depends on system performance & I/O).
+
+🧠 What is setImmediate() in Node.js?
+
+setImmediate() is a Node.js-specific function (not available in browser JavaScript).
+It schedules a callback to be executed after the current event loop cycle is completed, but before setTimeout(..., 0) in most cases.
+
+
+✔️ Solution with setImmediate()
+
+We split the large work into segments using setImmediate()
+➡ This allows Node.js to handle other requests in between!
+➡ Non-blocking and efficient 🚀
+
+app.get('/process-data', (req, res) => {
+  const largeArray = new Array(100000).fill(0).map((_, i) => i);
+
+  function processChunk(startIndex) {
+    for (let i = startIndex; i < startIndex + 1000 && i < largeArray.length; i++) {
+      // Heavy processing logic
+    }
+
+    if (startIndex < largeArray.length) {
+      setImmediate(() => processChunk(startIndex + 1000)); // Continue next chunk
+    }
+  }
+
+  processChunk(0); // Start processing
+  res.send("Started Processing - Server is still responsive!");
+});
+
+🧠 Why This Works?
+
+✔ Breaks work into chunks
+✔ Each chunk runs in Check Phase using setImmediate()
+✔ Event loop remains free for other API calls
+✔ High performance → No blocking
+
+
+📦 Use Case – Logging After Response
+
+You can send response fast but do heavy logging afterwards ⬇
+
+app.post('/login', (req, res) => {
+  res.send("Login Successful!");
+
+  // Logging AFTER response to keep API fast
+  setImmediate(() => {
+    saveLoginHistoryToDB(req.body.userId);  // heavy DB task
+  });
+});
+
+📁 Use Case – File Upload Processing
+app.post('/upload', upload.single('file'), (req, res) => {
+  res.send("Upload Received. Processing in background...");
+
+  setImmediate(() => {
+    processFile(req.file.path);  // Heavy CPU task
+  });
+});
+
+
+🎯 Final Conclusion
+
+✔ setImmediate() is not for delay, it is for non-blocking task execution
+✔ Helps build scalable & fast Node.js APIs
+✔ Best for I/O heavy & CPU intensive tasks
+✔ Executes after current event loop but before timers

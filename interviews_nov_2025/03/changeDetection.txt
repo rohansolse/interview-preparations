@@ -1,0 +1,14 @@
+What Is Change Detection in Angular?
+Change Detection is the mechanism Angular uses to update the DOM whenever the data in components changes.
+
+Examples of things that trigger change detection:
+- API response
+- Button click / user input
+- setTimeout(), setInterval()
+- Observable subscription
+- Promise resolution
+
+| Strategy    | Behavior                                   | Performance             |
+| ----------- | ------------------------------------------ | ----------------------- |
+| Default     | Checks all components in the hierarchy     | Slower for large apps   |
+| OnPush      | Checks only when needed                    | Faster and optimized    |

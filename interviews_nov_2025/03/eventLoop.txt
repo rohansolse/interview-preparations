@@ -1,0 +1,40 @@
+🔁 Execution Flow (Important Sequence)
+
+🟢 1. JS Starts on the Call Stack
+↓
+🔵 2. Async tasks go to libuv (via Node APIs)
+↓
+🟣 3. Heavy work → Thread Pool → OS
+↓
+🟠 4. When work is done → callback goes to Macrotask Queue OR Microtask Queue
+↓
+🟡 5. Event Loop picks tasks
+
+Microtask Queue ALWAYS FIRST (Highest priority)
+
+Then Macrotask Queue phase-wise
+↓
+🟢 6. Callback pushed to Call Stack → executed
+↓
+🔁 Process repeats until no work → exit
+
+
+
+📌 What Comes Under What? (Clear Grouping)
+🧠 JS Layer
+
+✔ Call Stack
+✔ Microtask Queue
+✔ Macrotask Queue (Event Queue)
+
+⚙ libuv Layer
+
+✔ Event Loop
+✔ Thread Pool (heavy work only)
+
+📦 OS Layer
+
+✔ System Calls
+✔ File System
+✔ Network
+✔ DNS

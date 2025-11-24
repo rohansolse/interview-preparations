@@ -1,0 +1,23 @@
+🔐 What Are Auth Guards in Angular?
+
+Auth Guards are security gates in Angular. They control whether a user can access a route or not.
+If the user is not logged in / token expired / no proper role, 
+then the AuthGuard blocks access and redirects them to login or another page.
+
+
+| Reason                     | Purpose                                      |
+| -------------------------- | -------------------------------------------- |
+| 🔑 Authentication          | Check if user is logged in / token available |
+| 🔐 Authorization           | Check user’s role (Admin, User, etc.)        |
+| ⏳ Token Expiry             | Prevent expired sessions                     |
+| 🛑 Block Direct URL Access | Protect routes from browser URL access       |
+| 📦 Lazy Loading Modules    | Protect modules before loading them          |
+
+
+| Guard              | When It Runs                    | Use Case                    |
+| ------------------ | ------------------------------- | --------------------------- |
+| `canActivate`      | Before entering route           | Prevent route access        |
+| `canActivateChild` | Before entering child routes    | Secure nested routes        |
+| `canLoad`          | Before lazy-loaded module loads | Secure modules              |
+| `canDeactivate`    | Before leaving route            | Prevent data loss           |
+| `resolve`          | Before loading data             | Fetch data before page load |

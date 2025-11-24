@@ -1,0 +1,37 @@
+how to clean up the angular components
+
+1. Unsubscribe properly (avoid memory leaks)
+
+Anywhere you use Observables (HTTP, services, router, store, etc.):
+a) Using takeUntil (recommended)
+
+b) For async pipe – no manual cleanup needed
+If you are using async in the template, Angular handles cleanup:
+
+2. Remove unused stuff (imports, variables, methods)
+
+3. Clean up template (HTML)
+
+Remove commented-out HTML.
+Remove unnecessary div wrappers.
+Use small, focused components if template is huge.
+Example:
+Instead of one giant template with payment, address, summary, confirmation all in one component – split:
+
+4. Use proper lifecycle hooks
+
+5. Avoid logic directly inside template
+
+6. Use Input/Output cleanly
+
+Don’t pass entire big objects everywhere if only 1–2 fields needed.
+Name things clearly.
+
+7. Keep component size reasonable
+
+8. Use proper types (avoid any)
+
+9. Remove debug code
+
+10. Example: Before & After small cleanup
+

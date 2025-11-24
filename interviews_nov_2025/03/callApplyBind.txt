@@ -1,0 +1,34 @@
+✅ 1. Using call() – Immediately Invoke with Custom Context
+function greet() {
+  console.log(`Hello ${this.name}`);
+}
+
+const user = { name: 'Rohan' };
+greet.call(user);  // Output: Hello Rohan
+
+🔍 call() directly invokes the function with the provided object as this.
+
+
+✅ 2. Using apply() – Same as call() but for Arrays
+function displayDetails(city: string, age: number) {
+  console.log(`${this.name} from ${city}, Age: ${age}`);
+}
+
+const user = { name: 'Rohan' };
+displayDetails.apply(user, ['Mumbai', 27]);  // Array passed
+
+🔍 apply() takes parameters in an array.
+
+
+✅ 3. Using bind() – Creates a New Function
+function sayHello() {
+  console.log(`Hello ${this.name}`);
+}
+
+const user = { name: 'Rohan' };
+const newFunc = sayHello.bind(user);
+
+newFunc();  // Output: Hello Rohan
+
+
+✔ bind() does not execute immediately, it returns a new function.
