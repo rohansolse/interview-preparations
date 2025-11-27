@@ -1,0 +1,18 @@
+ChatGPT said:
+⚠️ Faulty (Falsy) Values in JavaScript & Node.js
+
+Falsy values are those which JavaScript treats as false in a boolean condition (if, while, ?:, etc.).
+Even though they are not equal to false, JavaScript will consider them as false in conditions.
+
+| Value          | Type            | Example Usage   |
+| -------------- | --------------- | --------------- |
+| `false`        | Boolean         | `if(false)`     |
+| `0`            | Number          | `if(0)`         |
+| `-0`           | Number          | `if(-0)`        |
+| `0n`           | BigInt          | `if(0n)`        |
+| `""`           | Empty string    | `if("")`        |
+| `''`           | Empty string    | `if('')`        |
+| `` (backticks) | Empty string    | `if(\``)`       |
+| `null`         | Null value      | `if(null)`      |
+| `undefined`    | Undefined value | `if(undefined)` |
+| `NaN`          | Not a Number    | `if(NaN)`       |
