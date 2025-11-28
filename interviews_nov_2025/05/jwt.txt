@@ -1,0 +1,11 @@
+1. What is JWT?
+
+JWT = JSON Web Token
+It’s a string token used for authentication/authorization.
+It has 3 parts:
+header.payload.signature
+
+Header – algo & type (HS256, JWT)
+Payload – data (claims): userId, email, role, exp, etc.
+Signature – verifies token is genuine (signed with secret or private key).
+
