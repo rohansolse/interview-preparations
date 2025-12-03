@@ -1,0 +1,6 @@
+Tree shaking sounds like something a squirrel invented, 
+but in JavaScript land it’s a very clean, logical trick: remove the dead code that your app never uses.
+
+Picture your app as a giant tree. Every function, class, 
+and variable is a branch. If your code never “touches” a branch, the bundler can prune it out. 
+Less tree → smaller bundle → faster load.

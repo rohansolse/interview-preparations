@@ -1,0 +1,131 @@
+🌐 Localization in Angular (i18n)
+Localization means making your Angular application support multiple languages 
+(English, Hindi, Marathi, French, etc.) without changing the code.
+
+npm install @ngx-translate/core @ngx-translate/http-loader
+
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+
+import { AppComponent } from './app.component';
+
+// 🔹 ngx-translate imports
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+// 🔹 Loader factory function
+export function HttpLoaderFactory(http: HttpClient) {
+  // This tells ngx-translate to load files from: /assets/i18n/{lang}.json
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    HttpClientModule, // required for HttpLoader
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+      // optional default config
+      // defaultLanguage can also be handled in AppComponent
+    }),
+  ],
+  providers: [],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+
+mkdir -p src/assets/i18n
+
+src/assets/i18n/en.json
+{
+  "APP": {
+    "TITLE": "Welcome to our website!",
+    "DESCRIPTION": "This is a simple Angular localization demo.",
+    "LOGIN": "Login",
+    "LOGOUT": "Logout",
+    "LANGUAGE": "Language",
+    "GREETING": "Hello, {{name}}!"
+  }
+}
+
+
+src/assets/i18n/hi.json
+{
+  "APP": {
+    "TITLE": "हमारी वेबसाइट में आपका स्वागत है!",
+    "DESCRIPTION": "यह एक साधारण एंगुलर लोकलाइजेशन डेमो है।",
+    "LOGIN": "लॉगिन",
+    "LOGOUT": "लॉगआउट",
+    "LANGUAGE": "भाषा",
+    "GREETING": "नमस्ते, {{name}}!"
+  }
+}
+
+
+import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+})
+export class AppComponent {
+  title = 'i18n-demo';
+  userName = 'Rohan';
+
+  constructor(private translate: TranslateService) {
+    // 🔹 Available languages
+    translate.addLangs(['en', 'hi']);
+
+    // 🔹 Default language
+    const defaultLang = 'en';
+    translate.setDefaultLang(defaultLang);
+
+    // 🔹 Try to load from localStorage or browser
+    const savedLang = localStorage.getItem('lang');
+    const browserLang = translate.getBrowserLang();
+
+    const langToUse =
+      savedLang || (browserLang && ['en', 'hi'].includes(browserLang) ? browserLang : defaultLang);
+
+    this.useLanguage(langToUse);
+  }
+
+  useLanguage(lang: string) {
+    this.translate.use(lang);
+    localStorage.setItem('lang', lang);
+  }
+}
+
+<div class="app-container">
+  <header>
+    <h1>{{ 'APP.TITLE' | translate }}</h1>
+    <p>{{ 'APP.DESCRIPTION' | translate }}</p>
+
+    <div class="language-switcher">
+      <span>{{ 'APP.LANGUAGE' | translate }}:</span>
+      <button (click)="useLanguage('en')">English</button>
+      <button (click)="useLanguage('hi')">हिन्दी</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="card">
+      <p>{{ 'APP.GREETING' | translate:{ name: userName } }}</p>
+
+      <button>
+        {{ 'APP.LOGIN' | translate }}
+      </button>
+      <button>
+        {{ 'APP.LOGOUT' | translate }}
+      </button>
+    </div>
+  </main>
+</div>

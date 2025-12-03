@@ -1,0 +1,6 @@
+✅ What is a Deadlock in SQL?
+
+A deadlock occurs when two or more transactions lock resources 
+in such a way that each transaction is waiting for the other to release a lock.
+Since both are waiting forever, SQL Server/PostgreSQL/MySQL detects 
+this and forces one transaction to rollback, known as the deadlock victim.

@@ -1,0 +1,9 @@
+| Feature              | JIT                               | AOT                                   |
+| -------------------- | --------------------------------- | ------------------------------------- |
+| **Compilation Time** | Runtime (browser)                 | Build time (before deployment)        |
+| **App Load Speed**   | Slow (browser compiles templates) | Fast (app already compiled)           |
+| **Bundle Size**      | Bigger (needs compiler)           | Smaller (compiler removed)            |
+| **Error Detection**  | At runtime                        | At build time                         |
+| **Security**         | Less secure                       | More secure                           |
+| **Use Case**         | Development mode                  | Production mode                       |
+| **Command**          | `ng serve`                        | `ng build --configuration production` |

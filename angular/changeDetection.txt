@@ -1,0 +1,4 @@
+OnPush is an Angular change-detection strategy that updates 
+a component only when its input reference changes, 
+an event happens inside the component, or an observable emits. 
+It avoids unnecessary checks and significantly improves performance in large applications.

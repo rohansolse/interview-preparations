@@ -4,3 +4,47 @@
 | **Consistency** | Data must follow rules               | Wallet cannot go negative                                      |
 | **Isolation**   | Transactions don’t affect each other | Two users booking same ticket                                  |
 | **Durability**  | Data stored permanently after commit | Payment record exists even after crash                         |
+
+✅ Interview-Ready Explanation of ACID Properties
+Q1. What are ACID properties in a database?
+
+Answer:
+ACID stands for Atomicity, Consistency, Isolation, and Durability. These four guarantees ensure that every database transaction is processed reliably, even during failures, concurrency, or system crashes.
+
+Q2. Explain Atomicity with an example.
+
+Answer:
+Atomicity means all steps in a transaction must succeed or nothing should be applied.
+
+Example:
+When transferring ₹500 from Account A to B:
+
+Deduct ₹500 from A
+
+Add ₹500 to B
+
+If step 2 fails, step 1 must be rolled back.
+This prevents half-completed transactions.
+
+Q3. Explain Consistency.
+
+Answer:
+Consistency ensures that a transaction always moves the database from one valid state to another valid state, following all rules, constraints, and business logic.
+
+Example:
+If balance cannot go negative, the DB will not allow a transaction that breaks this rule.
+
+Q4. Explain Isolation with an example.
+
+Answer:
+Isolation ensures that multiple transactions running at the same time do not interfere with each other.
+
+Example:
+If two users try to book the last ticket at the same time, isolation ensures only one succeeds and the other sees updated data, preventing double-booking.
+
+Q5. What is Durability?
+
+Answer:
+Durability guarantees that once a transaction is committed, the data is permanently saved, even if the server crashes immediately after.
+
+PostgreSQL uses Write-Ahead Logs (WAL) to make this possible.
